@@ -19,7 +19,7 @@ public class Problem {
     /**
      * заголовок окна
      */
-    public static final String PROBLEM_CAPTION = "Итоговый проект ученика 10-7 Иванова Ивана";
+    public static final String PROBLEM_CAPTION = "Итоговый проект ученика 10-7 Вербина Никиты";
 
     /**
      * путь к файлу
@@ -30,12 +30,14 @@ public class Problem {
      * список точек
      */
     private ArrayList<Point> points;
+    private ArrayList<Line> lines;
 
     /**
      * Конструктор класса задачи
      */
     public Problem() {
         points = new ArrayList<>();
+        lines = new ArrayList<>();
     }
 
     /**
@@ -48,6 +50,10 @@ public class Problem {
     public void addPoint(double x, double y, int setVal) {
         Point point = new Point(x, y, setVal);
         points.add(point);
+    }
+    public void addLine(double x, double y, double x1, double y1, int setVal){
+        Line line=new Line(x,y,x1,y1,setVal);
+        lines.add(line);
     }
 
     /**
@@ -117,12 +123,21 @@ public class Problem {
             points.add(p);
         }
     }
+    public void addLines(int n) {
+        for (int i = 0; i < n; i++) {
+            Line p =new Line(1,2,3,4,5);
+            Line p1 =new Line(5,8,3,4,2);
+            lines.add(p);
+            lines.add(p1);
+        }
+    }
 
     /**
      * Очистить задачу
      */
     public void clear() {
         points.clear();
+        lines.clear();
     }
 
     /**
@@ -133,6 +148,9 @@ public class Problem {
     public void render(GL2 gl) {
         for (Point point : points) {
             point.render(gl);
+        }
+        for (Line line : lines) {
+            line.render(gl);
         }
     }
 }
