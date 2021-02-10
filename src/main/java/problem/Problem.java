@@ -51,8 +51,8 @@ public class Problem {
         Point point = new Point(x, y, setVal);
         points.add(point);
     }
-    public void addLine(double x, double y, double x1, double y1, int setVal){
-        Line line=new Line(x,y,x1,y1,setVal);
+    public void addLine(double x, double y, double x1, double y1){
+        Line line=new Line(x,y,x1,y1);
         lines.add(line);
     }
 
@@ -125,8 +125,8 @@ public class Problem {
     }
     public void addLines(int n) {
         for (int i = 0; i < n; i++) {
-            Line p =new Line(1,2,3,4,5);
-            Line p1 =new Line(5,8,3,4,2);
+            Line p =new Line(0.1,0.9,0.3,0.4);
+            Line p1 =new Line(0.5,0.8,0.3,0.4);
             lines.add(p);
             lines.add(p1);
         }
