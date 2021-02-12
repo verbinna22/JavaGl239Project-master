@@ -154,14 +154,15 @@ public class Problem {
 //            line.render(gl);
 //        }
 
-        //Figures.renderLine(gl, -1, -2, 5, 10, 5);
-        //Figures.renderPoint(gl, 0.5, 0.2, 2);
+        //Figures.renderLine(gl, 1, -2, -5, 10, 10);
+        //Figures.renderPoint(gl, 0.5, 0.2, 10);
         //Figures.renderTriangle(gl, 0.1,0.2, -0.5,-0.1,0.5,-0.1, true);
         //Figures.renderTriangle(gl, -0.1,0.2, -0.5,0.1,-0.5,-0.1, false);
         //Figures.renderQuads(gl, -0.1,0.2, -0.5,0.1,-0.5,-0.1, 0,-0.4,false);
         //Figures.renderQuads(gl, -0.7,0.3, -0.9,0.4,-0.2,-0.8, 0.6,0,true);
-        Figures.renderCircle(gl,0.1,-0.5,0,0, false);
+        //Figures.renderCircle(gl,0.1,-0.5,0,0, false);
         //Figures.renderCircle(gl,0.1,-0.5,0,0, true);
+        Figures.renderCube(gl, 0, 0, 0.2, true, 0.1);
 
     }
 

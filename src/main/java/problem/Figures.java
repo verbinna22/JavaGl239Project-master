@@ -70,23 +70,23 @@ public class Figures {
 
             gl.glBegin(GL2.GL_TRIANGLES);
             double uol=2*Math.PI/50;
-            //double n=Math.sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y));
-            for (int i=1; i<50; i++){
-                double xx=Math.cos(uol*i);
-                double yy=Math.sin(uol*i);
-                double xx1=Math.cos(uol*(i-1));
-                double yy1=Math.sin(uol*(i-1));
+            double n= Math.sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y));
+            for (int i=1; i<51; i++){
+                double xx=Math.cos(uol*i)*n;
+                double yy=Math.sin(uol*i)*n;
+                double xx1=Math.cos(uol*(i-1))*n;
+                double yy1=Math.sin(uol*(i-1))*n;
                 gl.glVertex2d(x,y);
                 gl.glVertex2d(xx,yy);
                 gl.glVertex2d(xx1,yy1);
             }
-            double xx=Math.cos(uol*0);
-            double yy=Math.sin(uol*0);
-            double xx1=Math.cos(uol*(49));
-            double yy1=Math.sin(uol*(49));
-            gl.glVertex2d(x,y);
-            gl.glVertex2d(xx,yy);
-            gl.glVertex2d(xx1,yy1);
+            //double xx=Math.cos(uol*0);
+            //double yy=Math.sin(uol*0);
+            //double xx1=Math.cos(uol*(49));
+            //double yy1=Math.sin(uol*(49));
+            //gl.glVertex2d(x,y);
+            //gl.glVertex2d(xx,yy);
+            //gl.glVertex2d(xx1,yy1);
             gl.glEnd();}
 
 
@@ -94,7 +94,7 @@ public class Figures {
             gl.glBegin(GL2.GL_LINE_STRIP);
             double uol=2*Math.PI/50;
             double n=Math.sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y));
-            for (int i=2; i<50; i++){
+            for (int i=1; i<51; i++){
                 double xx=Math.cos(uol*i)*n;
                 double yy=Math.sin(uol*i)*n;
                 double xx1=Math.cos(uol*(i-1))*n;
@@ -103,13 +103,70 @@ public class Figures {
                 gl.glVertex2d(xx1,yy1);
 
             }
-            double xx=Math.cos(uol*2)*n;
-            double yy=Math.sin(uol*2)*n;
-            double xx1=Math.cos(uol*50)*n;
-            double yy1=Math.sin(uol*50)*n;
-            gl.glVertex2d(xx,yy);
-            gl.glVertex2d(xx1,yy1);
+            //double xx=Math.cos(uol*2)*n;
+            //double yy=Math.sin(uol*2)*n;
+            //double xx1=Math.cos(uol*50)*n;
+            //double yy1=Math.sin(uol*50)*n;
+            //gl.glVertex2d(xx,yy);
+            //gl.glVertex2d(xx1,yy1);
 
+            gl.glEnd();
+        }
+    }
+    public static void renderCube(GL2 gl, double x, double y, double a, boolean filled, double b){
+        gl.glColor3d(0,0,1);
+        gl.glPointSize(10);
+        b =Math.abs(b);
+        if (!filled){
+
+            gl.glBegin(GL2.GL_LINE_STRIP);
+
+            gl.glVertex2d(x,y);
+            gl.glVertex2d(x+a,y);
+            gl.glVertex2d(x+a,y+a);
+            gl.glVertex2d(x,y+a);
+            gl.glVertex2d(x,y);
+            gl.glVertex2d(x+a/b,y+a/b);
+            gl.glVertex2d(x+a/b,y+a+a/b);
+            gl.glVertex2d(x,y+a);
+            gl.glVertex2d(x+a,y+a);
+            gl.glVertex2d(x+a+a/b,y+a+a/b);
+            gl.glVertex2d(x+a/b,y+a+a/b);
+            gl.glVertex2d(x+a/b,y+a/b);
+            gl.glVertex2d(x+a+a/b,y+a/b);
+            gl.glVertex2d(x+a,y);
+            gl.glVertex2d(x+a,y+a);
+            gl.glVertex2d(x+a+a/b,y+a+a/b);
+            gl.glVertex2d(x+a+a/b,y+a/b);
+            //double xx=Math.cos(uol*0);
+            //double yy=Math.sin(uol*0);
+            //double xx1=Math.cos(uol*(49));
+            //double yy1=Math.sin(uol*(49));
+            //gl.glVertex2d(x,y);
+            //gl.glVertex2d(xx,yy);
+            //gl.glVertex2d(xx1,yy1);
+            gl.glEnd();}
+
+
+        else{
+            gl.glBegin(GL2.GL_QUADS);
+
+            gl.glVertex2d(x,y);
+            gl.glVertex2d(x+a,y);
+            gl.glVertex2d(x+a,y+a);
+            gl.glVertex2d(x,y+a);
+
+            gl.glColor3d(0,0,0.5);
+            gl.glVertex2d(x,y+a);
+            gl.glVertex2d(x+a/b,y+a+a/b);
+            gl.glVertex2d(x+a+a/b,y+a+a/b);
+            gl.glVertex2d(x+a,y+a);
+
+            gl.glColor3d(0,0,0.2);
+            gl.glVertex2d(x+a,y);
+            gl.glVertex2d(x+a+a/b,y+a/b);
+            gl.glVertex2d(x+a+a/b,y+a+a/b);
+            gl.glVertex2d(x+a,y+a);
             gl.glEnd();
         }
     }
