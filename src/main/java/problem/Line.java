@@ -21,13 +21,14 @@ public class Line {
         this.y1=y1;
     }
 
-    void render(GL2 gl) {
+    public void render(GL2 gl) {
         gl.glBegin(GL.GL_LINES);
-        gl.glColor3f(0, 0, 0);
+        gl.glPointSize(1);
+        gl.glColor3f(1, 1, 0);
         gl.glVertex2d(x1, y1);
         gl.glVertex2d(x, y);
         gl.glEnd();
-        //gl.glPointSize(1);
+
     }
 
     /**

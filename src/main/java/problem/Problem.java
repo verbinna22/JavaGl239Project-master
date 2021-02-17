@@ -162,7 +162,23 @@ public class Problem {
         //Figures.renderQuads(gl, -0.7,0.3, -0.9,0.4,-0.2,-0.8, 0.6,0,true);
         //Figures.renderCircle(gl,0.1,-0.5,0,0, false);
         //Figures.renderCircle(gl,0.1,-0.5,0,0, true);
-        Figures.renderCube(gl, 0, 0, 0.2, true, 2);
+        //Figures.renderCube(gl, 0, 0, 0.2, true, 2);
+
+        //Line li1 = new Line(1,2, -1, -2);
+        //Line li2 = new Line(-0.5,-0.7, 0.2, 0.1);
+        //li1.render(gl);
+        //li2.render(gl);
+
+        //Figures.pointLine(gl, li1, li2);
+
+        //Point p1= new Point(0.1, 0.7, 3);
+        //Point p2= new Point(0, -0.7, 4);
+        //Figures.linePoint2(gl, p1, p2);
+
+        Point p1= new Point(0.1, 0.7, 3);
+        Point p2= new Point(0, -0.7, 4);
+        Figures.linePoint2(gl, p1, p2);
+
 
     }
 

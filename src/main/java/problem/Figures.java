@@ -12,6 +12,49 @@ public class Figures {
         gl.glVertex2d(x1,y1);
         gl.glEnd();
     }
+    public static void pointLine(GL2 gl, Line li1, Line li2){
+        double a=li1.y-li1.y1;
+        double b=li1.x1-li1.x;
+        double c=li1.x*li1.y1-li1.x1*li1.y;
+        double a1=li2.y-li2.y1;
+        double b1=li2.x1-li2.x;
+        double c1=li2.x*li2.y1-li2.x1*li2.y;
+        if (!(b==0 && b1==0)) {
+            double x=0;
+            double y=0;
+            if (b==0){
+                x=-1*c/a;
+                y=(a1*x+c1)/(-1*b1);
+            }
+            if (b1==0){
+                x=-1*c1/a1;
+                y=(a*x+c)/(-1*b);
+            }
+            if (b!=0 && b1!=0){
+                y=-1*(a1*c-a*c1)/(a1*b-a*b1);
+                x=(b*y+c)/(-1*a);
+            }
+            gl.glColor3d(1, 1, 1);
+            gl.glPointSize(6);
+            gl.glBegin(GL2.GL_POINTS);
+            gl.glVertex2d(x, y);
+            gl.glEnd();
+        }
+    }
+    public static void linePoint(GL2 gl, Point p1, Point p2){
+        p1.render(gl);
+        p2.render(gl);
+        Line li=new Line(p1.x, p1.y,p2.x,p2.y);
+        li.render(gl);
+    }
+    public static void linePoint2(GL2 gl, Point p1, Point p2){
+        double xx=p1.x-p2.x;
+        double yy=p1.y-p2.y;
+        p1.render(gl);
+        p2.render(gl);
+        Line li=new Line(p1.x-xx*10, p1.y-yy*10,p2.x+xx*10,p2.y+yy*10);
+        li.render(gl);
+    }
     public static void renderPoint(GL2 gl, double x, double y, int size){
         gl.glColor3d(1,1,1);
         gl.glPointSize(size);
