@@ -162,7 +162,7 @@ public class Problem {
         //Figures.renderQuads(gl, -0.7,0.3, -0.9,0.4,-0.2,-0.8, 0.6,0,true);
         //Figures.renderCircle(gl,0.1,-0.5,0,0, false);
         //Figures.renderCircle(gl,0.1,-0.5,0,0, true);
-        Figures.renderCube(gl, 0, 0, 0.2, true, 0.1);
+        Figures.renderCube(gl, 0, 0, 0.2, true, 2);
 
     }
 
